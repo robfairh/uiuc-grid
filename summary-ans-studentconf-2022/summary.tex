@@ -1,0 +1,217 @@
+\documentclass{anstrans}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Energy alternatives to reduce the University of Illinois at Urbana-Champaign campus CO$_2$ emissions}
+\author{Roberto E. Fairhurst Agosta, Tomasz Kozlowski}
+
+\institute{
+University of Illinois at Urbana-Champaign, Dept. of Nuclear, Plasma, and Radiological Engineering\\
+ref3@illinois.edu
+}
+
+%%%% packages and definitions (optional)
+\usepackage{graphicx} % allows inclusion of graphics
+\usepackage{booktabs} % nice rules (thick lines) for tables
+\usepackage{microtype} % improves typography for PDF
+\usepackage{xspace}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{floatrow}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+% \makeglossaries
+
+\usepackage[printwatermark]{xwatermark}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{lipsum}
+
+
+\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
+\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
+\newcommand{\grad}{\vec{\nabla}} % gradient
+\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
+
+\newcolumntype{c}{>{\hsize=.56\hsize}X}
+\newcolumntype{b}{>{\hsize=.7\hsize}X}
+\newcolumntype{s}{>{\hsize=.74\hsize}X}
+\newcolumntype{f}{>{\hsize=.1\hsize}X}
+\newcolumntype{a}{>{\hsize=.45\hsize}X}
+%\usepackage[pagestyles]{titlesec}
+%\titleformat*{\subsection}{\normalfont}
+%\titleformat{\section}{\bfseries}{Item \thesection.\ }{0pt}{}
+
+%\newwatermark[allpages,color=gray!50,angle=45,scale=3,xpos=0,ypos=0]{DRAFT}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+% Motivation: Why is decarbonization necessary
+Energy is one of the largest contributors to economic growth.
+In the future, economies and populations will continue to expand, and their energy demand will accompany such a change.
+Meeting these future needs requires the development of clean energy sources to ease the increasing environmental concerns.
+In 2017, electricity generation was one of the economic sectors that released the most greenhouse gases (GHGs) in the US \cite[2].
+Decarbonizing electricity generation will allow us to meet the increases in energy demand and address the environmental concerns simultaneously.
+
+% UIUC
+This work focuses on the decarbonization of UIUC campus grid, aligning its objectives with the Illinois Climate Action Plan (iCAP) \cite[3-4].
+In 2008, UIUC signed the American College and University Presidents’ Climate Commitment, formally committing to becoming carbon neutral as soon as possible, no later than 2050.
+The university developed the iCAP in 2010 as a comprehensive roadmap toward a sustainable campus environment.
+
+% Campus Grid
+As shown in Figure ..., several electricity sources contribute to meeting UIUC campus demand.
+%% Abbott
+The Abbott Power Plant has multiple gas turbines and boilers that run on natural gas, fuel oil or coal.
+The plant is a co-generation facility that supplies the campus with electricity and steam.
+The production of high-pressure steam spins a turbine to drive a generator and produce electricity.
+The low-pressure exhaust steam fulfills the space heating, water heating, and space cooling requirements from campus.
+Abbott’s maximum capacity is 85 MW for electricity and 800 klbs/h for steam.
+%% Purchased
+Similar to natural gas, the university purchases electricity with the assistance of a market advisor.
+The university works with Prairieland Energy, Inc. to determine volumes and price points for future purchases of electricity, with the goal of providing cost effective utilities \cite [7].
+%% Wind
+The Rail Splitter Wind Farm has 67 wind turbines of 1.5 MW each, providing the farm a maximum power output of 100.5 MW.
+Due to a power purchase agreement, the university buys an 8.6\% of the total wind generation from the farm \cite [7-8].
+%% Solar
+The Solar Farm 1.0 comprises 18,867 modules, which cover a land area of 20.8 acres and produce a power output of 4.68 MW \cite[7, 9-11].
+This work considers the small scale solar component to be negligible.
+
+
+Figure goes here.
+
+
+
+
+
+
+
+% Objectives
+The main objective of this work is to analyze several electricity generation alternatives for decreasing CO$_2$ emissions on UIUC campus.
+For this reason, this paper evaluates a scenario increasing wind and solar generation capacity.
+Due to the non-dispatchable nature of wind and solar generation, such a scenario requires the addition of energy storage mechanisms.
+This paper also considers a second scenario increasing wind and solar generation capacity, as well as adding a nuclear reactor into the mix.
+
+
+
+
+
+\section{Electricity Storage Mechanisms}
+
+This work considers two energy storage mechanisms, Li-ion batteries and hydrogen produced via electrolysis of water.
+This section briefly describes each of them and their integration into the energy mix.
+
+% Li-ion
+The first prototype of a Li-ion battery was developed in 1985, becoming recently popular in the last two decades.
+Li-ion batteries are rechargeable and are commonly used in laptops and cellphones, in Electric Vehicles (EVs), in Uninterruptible Power Supplies (UPS), for applications such as computers, communication technology, and medical technology.
+This type of battery is characterized for its high energy density and low self-discharge.
+Additionally, it has a charge-discharge efficiency of 80-90\%, making a good candidate for electricity storage \cite[13-17].
+
+% Hydrogen
+The electrolysis of water is a well-known process whose commercial use began in 1890.
+This process produces approximately 4\% of the worldwide H$_2$.
+The process is ecologically clean because it does not emit GHGs.
+However, in comparison with other methods, electrolysis is a highly energy-demanding technology.
+Three electrolysis technologies exist.
+Alkaline-based is the most common, the most developed, and the lowest in capital cost.
+It has the lowest efficiency and, therefore, the highest electrical energy cost.
+Proton exchange membrane (PEM) electrolyzers are more efficient but more expensive than Alkaline electrolyzers.
+Solid Oxide Electrolysis Cells (SOEC) electrolyzers are the most electrically efficient but the least developed.
+SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
+The first two technologies work with liquid water, and the latter requires high-temperature steam, so this work refers to the first two as Low-Temperature Electrolysis (LTE) and the latter as High-Temperature Electrolysis (HTE) \cite[1].
+
+% Still Hydrogen
+Water electrolysis converts electric and thermal energy into chemical energy stored in hydrogen.
+The process enthalpy change $\Delta H$ determines the required energy for the electrolysis reaction to
+take place
+\begin{align}
+\Delta H = \Delta G + T \Delta S
+\end{align}
+where $\Delta G$ is the specific electrical energy and $T \Delta S$ the specific thermal energy.
+
+
+In LTE, electricity generates the thermal energy.
+Hence, $\Delta H$ determines the process’s energy requirement.
+$\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
+
+In HTE, a high-temperature heat source is necessary to provide the thermal energy.
+∆𝐺 decreases with increasing temperatures, as seen in Figure 3. Decreasing the electricity
+requirement results in higher overall production efficiencies since heat-engine-based electrical
+work has a thermal efficiency of 50% or less.
+
+
+
+Microreactor
+
+LTE-H2
+HTE-H2
+
+
+Figure goes here.
+
+
+
+
+\section{Methodology}
+
+This paper studies 3 different scenarios:
+
+\begin{itemize}
+\item \textbf{Scenario 0} considers the business as usual case, in which the CO$_2$ production is calculated using the energy production hourly data.
+The data used in this work is available from UIUC Facilities and Servicies per request \cite [18].
+Abbott and the purchased electricity are considered to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite [3-4].
+
+\item \textbf{Scenario 1} studies the case in which the wind and solar generation capacity increase several times fold.
+The addition of electricity storage mechanisms is necessary and becomes part of the energy mix. 
+Additionally, the development of a dispatch model is necessary to calculate the new electricity production from Abbott and the purchased electricity as well.
+Such a model, gives priority to the different sources in the following order: renewable sources, storage mechanism, Abbott, and purchases. Abbott’s electricity generation is preferred over imports because of their CO$_2$ emissions per MWh.
+
+\item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
+A second dispatch model calculates the new electricity production from Abbott and the purchased electricity.
+This model gives priority to the different sources in the following order: renewable sources, nuclear reactor, storage mechanism, Abbott, and purchases.
+
+
+\section{Results}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ans}
+\bibliography{bibliography}
+\end{document}
+
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.95\linewidth]{figures/radial-layout.png}
+%     \hfill
+%     \caption{Core radial layout. Image reproduced from \cite{oecd_nea_benchmark_2017}.}
+%     \label{fig:radial}
+% \end{figure}
+
+% \begin{align}
+%     \frac{1}{v_g}\frac{\partial}{\partial t} \phi_g &= \nabla \cdot D_g
+%     \nabla \phi_g - \Sigma_g^r \phi_g \sum_{g \ne g'}^G
+%     \Sigma_{g'\rightarrow g}^s \phi_{g'} \label{eq:diffusion}
+%     \intertext{where}
+%     C_i &= \mbox{concentration of delayed neutron precursors} \notag \\
+%     &\phantom{{}=1} \mbox{in precursor group $i$}.
+% \end{align}
+
+% \subsection{Mathematical Basis}
+% % Boussinesq approximation
+% \begin{align}
+% \rho \left[ \frac{\partial \vec{u}}{\partial t} + (\vec{u} \cdot \nabla)\vec{u} \right] &= - \nabla p + \mu \nabla^2 \vec{u} - \rho \vec{g} \\
+% \rho &= \rho_0 \left[ 1-\beta(T-T_0) \right] ^ \beta = \frac{1}{T_{ref}} \\
+% \rho_0 \left[ \frac{\partial \vec{u}}{\partial t} + (\vec{u} \cdot \nabla)\vec{u} \right] &= - \nabla p + \mu \nabla^2 \vec{u} - \rho_0 \vec{g} \beta (T-T_0)
+% \end{align}
+
+% % Laminar vs turbulent
+% Gr/Ra
