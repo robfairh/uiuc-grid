@@ -64,7 +64,7 @@ In 2008, UIUC signed the American College and University Presidents’ Climate C
 The university developed the iCAP in 2010 as a comprehensive roadmap toward a sustainable campus environment.
 
 % Campus Grid
-As shown in Figure ..., several electricity sources contribute to meeting UIUC campus demand.
+As shown in Figure \ref{fig:elec-distrib} several electricity sources contribute to meeting UIUC campus demand.
 %% Abbott
 The Abbott Power Plant has multiple gas turbines and boilers that run on natural gas, fuel oil or coal.
 The plant is a co-generation facility that supplies the campus with electricity and steam.
@@ -81,22 +81,19 @@ Due to a power purchase agreement, the university buys an 8.6\% of the total win
 The Solar Farm 1.0 comprises 18,867 modules, which cover a land area of 20.8 acres and produce a power output of 4.68 MW \cite[7, 9-11].
 This work considers the small scale solar component to be negligible.
 
-
-Figure goes here.
-
-
-
-
-
-
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/elec-distrib}
+    \hfill
+    \caption{UIUC campus electricity generation distribution in fiscal year 2019.}
+    \label{fig:elec-distrib}
+\end{figure}
 
 % Objectives
 The main objective of this work is to analyze several electricity generation alternatives for decreasing CO$_2$ emissions on UIUC campus.
 For this reason, this paper evaluates a scenario increasing wind and solar generation capacity.
 Due to the non-dispatchable nature of wind and solar generation, such a scenario requires the addition of energy storage mechanisms.
 This paper also considers a second scenario increasing wind and solar generation capacity, as well as adding a nuclear reactor into the mix.
-
-
 
 
 
@@ -133,17 +130,22 @@ take place
 \end{align}
 where $\Delta G$ is the specific electrical energy and $T \Delta S$ the specific thermal energy.
 
-
 In LTE, electricity generates the thermal energy.
 Hence, $\Delta H$ determines the process’s energy requirement.
 $\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
 
 In HTE, a high-temperature heat source is necessary to provide the thermal energy.
-∆𝐺 decreases with increasing temperatures, as seen in Figure 3. Decreasing the electricity
-requirement results in higher overall production efficiencies since heat-engine-based electrical
-work has a thermal efficiency of 50% or less.
+% Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
+$\Delta G$ decreases with increasing temperatures, as seen in Figure \ref{fig:hte-energy}.
+Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
 
-
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/hte-energy}
+    \hfill
+    \caption{Energy required by electrolysis at atmospheric pressure.}
+    \label{fig:hte-energy}
+\end{figure}
 
 Microreactor
 
