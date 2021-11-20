@@ -166,37 +166,42 @@ After converting the excess of energy into hydrogen, it can be stored until the 
 The conversion of hydrogen produces 40 kWh/kg-H$_2$ \cite{ursua_hydrogen_2012}.
 However, conventional fuel cells can use up to 60\% of that energy \cite{doe_energy_fuel_2015}.
 
+% I haven't mentioned that the HTE happens at 3.5 MPa
+
 
 \section{Methodology}
 
+As mentioned earlier, the focus of this paper is to decrease the CO$_2$ emissions on UIUC campus.
+This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0.
 
-This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0:
+\textbf{Scenario 0} considers the business as usual case.
+We calculate the CO$_2$ emissions using the electricity production hourly data.
+These data are available from UIUC Facilities and Servicies per request.
+To narrow down the scope, we focus on months of the two most demanding seasons of the year, January for the winter and June for the summer.
+% Abbott and the purchased electricity are estimated to emit 0.26 tCO$_2$/MW(th)h and 0.825 tCO$_2$/MWh, respectively \cite{isee_illinois_2015, isee_illinois_2020}.
+% I haven't mentioned that we consider abbot to have a thermal efficiency of 60 \%
+% Abbott: 0.26 * 0.907185 / 0.6 /// Purchases: 0.825 * 0.907185
+Abbott and the purchased electricity are estimated to emit 0.39 MT CO$_2$/MWh and 0.75 MT CO$_2$/MWh, respectively \cite{isee_illinois_2015, isee_illinois_2020}.
 
-\begin{itemize}
-\item \textbf{Scenario 0} considers the business as usual case.
+\textbf{Scenario 1} studies the increase of the wind and solar generation capacity up to ten times fold.
+The increase in the wind and solar generation capacity requires the addition of electricity storage mechanisms into the mix.
+The development of a dispatch model is necessary to calculate the energy being stored, Abbott's hourly production, and the purchsed electricity.
+This model, gives priority to the different sources in the following order: wind and solar, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
+The \gls{ND} is calculated substracting the wind and solar generation from the total demand.
+Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
 
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/dispatch-model}
+    \hfill
+    \caption{Scenario 1 and 2 dispatch model that calculates the hourly generation of the different sources. \textit{ND} is the net demand.}
+    \label{fig:dispatch-model}
+\end{figure}
 
+\textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
+This model gives priority to the different sources in the following order: wind and solar, nuclear reactor, storage mechanism, Abbott, and purchases.
+The \gls{ND} is calculated substracting the wind, solar, and nuclear generation from the total demand.
 
-% in which the CO$_2$ production is calculated using the energy production hourly data.
-% The data used in this work is available from UIUC Facilities and Servicies per request.
-% Abbott and the purchased electricity are estimated to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite{isee_illinois_2015, isee_illinois_2020}.
-
-
-\item \textbf{Scenario 1} studies the increase of the wind and solar generation capacity up to ten times fold.
-
-% The addition of electricity storage mechanisms is necessary and becomes part of the energy mix. 
-% Additionally, the development of a dispatch model is necessary to calculate the new electricity production from Abbott and the purchased electricity, as well as the energy being stored.
-% Such a model, gives priority to the different sources in the following order: renewable sources, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
-% Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
-% The \gls{ND} is calculated substracting the wind and solar generation from the total demand.
-
-\item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
-
-% A second dispatch model calculates the new electricity production from Abbott and the purchased electricity.
-% This model gives priority to the different sources in the following order: renewable sources, nuclear reactor, storage mechanism, Abbott, and purchases.
-% The \gls{ND} is calculated substracting the wind, solar, and nuclear generation from the total demand.
-
-\end{itemize}
 
 % UIUC campus demand is typically smaller than 80 MW.
 % Accordingly, the following analyses consider reactors of small capacities, such as microreactors and small modular reactors (SMRs).
@@ -206,13 +211,6 @@ This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to
 % They can also operate in islanding mode, being able to operate connected to the grid or independently.
 % Moreover, these reactors use passive safety systems, minimizing electrical parts \cite{us-doe_ultimate_2019}.
 
-% \begin{figure}[htbp!] %or H 
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/dispatch-model}
-%     \hfill
-%     \caption{Scenario 1 and 2 dispatch model that calculates the hourly generation of the different sources. \textit{ND} is the net demand.}
-%     \label{fig:dispatch-model}
-% \end{figure}
 
 % \begin{figure}[htbp!] %or H 
 %     \centering
