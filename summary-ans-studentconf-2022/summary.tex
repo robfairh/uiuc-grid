@@ -185,7 +185,7 @@ Abbott and the purchased electricity are estimated to emit 0.39 MT CO$_2$/MWh an
 
 \textbf{Scenario 1} studies the increase of the wind and solar generation capacity up to ten times fold.
 The increase in the wind and solar generation capacity requires the addition of electricity storage mechanisms into the mix.
-The development of a dispatch model is necessary to calculate the energy being stored, Abbott's hourly production, and the purchased electricity.
+The development of a dispatch model is necessary to calculate the energy being stored, Abbott hourly production, and the purchased electricity.
 This model, gives priority to the different sources in the following order: wind and solar, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
 The \gls{ND} is calculated subtracting the wind and solar generation from the total demand.
 Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
@@ -243,64 +243,46 @@ Given that summer emissions are higher than in the winter, the following analyse
   \end{tabularx}
 \end{table}
 
-
 % Scenario 1
-
-% The results show only Abbott CO2 emissions. Does it mean that purchasing electricity is no longer required?
-% Two figures:
-% - Dispatch model result: what can I comment about this? Just to show it as an example. Need to add net demand and purchases.
-% - Image with 3 y axes: 
-
-Figure \ref{fig:1-summer-emissions}
-Figure \ref{fig:1-summer-distrib}
-
-
-Figure 7 displays an example of hourly electricity distribution by source. In this case, the chosen
-storage mechanism is Li-ion batteries. Figures 8 and 9 show the CO 2 emissions and the
-respective wind, solar, and storage capacities for the different increase capacity factors. These
-figures show that Abbott has enough capacity to supply campus without the need for importing
-electricity. However, this study focuses on CO 2 emissions and not on the economical side of the
-electricity supply. For the summer month, eliminating the electricity imports already reduces the
-emissions in almost a half.
-This scenario considers a linear increase in the renewable capacities, as shown in Figures 8
-and 9, the CO 2 reduction is also linear as long as no energy storage is required. Once, the
-energy storage is needed, the higher the charge-discharge efficiency, the more linear the
-reduction is. This scenario achieves higher CO 2 reductions by using Li-ion batteries.
-
-% Figure - Scenario 1 - CO2 emissions / Capacities
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/scenario1-summerA}
-    \hfill
-    \caption{Scenario 1 CO$_2$ emissions for different increases in the wind and solar generation capacities.}
-    \label{fig:1-summer-emissions}
-\end{figure}
+Figure \ref{fig:1-summer-distrib} displays an example of the hourly distribution calculated by the dispatch model.
+Subtracting the wind and solar generation from the demand allows to calculate the stored electricity, Abbott production, and the purchased electricity.
+This figure show that Abbott has enough capacity to supply campus without the need for purchasing electricity.
+This study focuses on the reduction of the CO$_2$ emissions and not on the economics.
+Eliminating the electricity purchases already reduces the emissions in almost a half, as shown in Figure \ref{fig:1-summer-emissions}.
+This figure displays the CO$_2$ emissions as well as wind, solar, and storage capacities for the different capacity increase factors.
+Scenario 1 considers a linear increase in the wind and solar capacities.
+Hence, the CO$_2$ reduction is also linear as long as no energy storage is required.
+The campus wind and solar capacities can be increased up to 25.9 and 14 MW respectively (3 times fold) without a need for installing a storage mechanism.
+Once, the energy storage is needed, the higher the charge-discharge efficiency, the larger the reduction is.
+This scenario achieves a higher CO$_2$ reduction by means of Li-ion batteries.
 
 % Figure - Scenario 1 - Electricity generation distribution
 \begin{figure}[htbp!] %or H 
     \centering
     \includegraphics[width=0.90\linewidth]{figures/scenario1-summerB}
     \hfill
-    \caption{Scenario 1 hourly generation distribution by source for a capacity increase factor of.}
+    \caption{Scenario 1 hourly generation distribution by source for a capacity increase factor of 10.}
     \label{fig:1-summer-distrib}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
+% Figure - Scenario 1 - CO2 emissions / Capacities
 \begin{figure}[htbp!] %or H 
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/scenario1-summerA}
+    \includegraphics[width=0.99\linewidth]{figures/scenario1-summerA}
     \hfill
     \caption{Scenario 1 CO$_2$ emissions for different increases in the wind and solar generation capacities.}
-    \label{fig:emissions-1-summer}
+    \label{fig:1-summer-emissions}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
 
 % % Scenario 2
 
