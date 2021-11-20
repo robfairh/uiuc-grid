@@ -49,192 +49,212 @@ ref3@illinois.edu
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Outline
+
+%Introduction
+%%Motivation
+%%Objectives
+
+%Storage Mechanisms
+
+%Methodology: How to calculate everything
+%%Scenarios/Dispatch models
+
+%Results
+
+%Conclusions
+
+
 \section{Introduction}
 
 % Motivation: Why is decarbonization necessary
 Energy is one of the largest contributors to economic growth.
 In the future, economies and populations will continue to expand, and their energy demand will accompany such a change.
 Meeting these future needs requires the development of clean energy sources to ease the increasing environmental concerns.
-In 2019, electricity generation was one of the economic sectors that released the most greenhouse gases (GHGs) in the US \cite[2].
+In 2019, electricity generation was one of the economic sectors that released the most \glspl{GHG} in the US \cite{us_epa_sources_2015}.
 Decarbonizing electricity generation will allow us to meet the increases in energy demand and address the environmental concerns simultaneously.
-
-% UIUC
-This work focuses on the decarbonization of UIUC campus grid, aligning its objectives with the Illinois Climate Action Plan (iCAP) \cite[3-4].
-In 2008, UIUC signed the American College and University Presidents’ Climate Commitment, formally committing to becoming carbon neutral as soon as possible, no later than 2050.
-The university developed the iCAP in 2010 as a comprehensive roadmap toward a sustainable campus environment.
-
-% Campus Grid
-As shown in Figure \ref{fig:elec-distrib} several electricity sources contribute to meeting UIUC campus demand.
-%% Abbott
-The Abbott Power Plant has multiple gas turbines and boilers that run on natural gas, fuel oil or coal.
-The plant is a co-generation facility that supplies the campus with electricity and steam.
-The production of high-pressure steam spins a turbine to drive a generator and produce electricity.
-The low-pressure exhaust steam fulfills the space heating, water heating, and space cooling requirements from campus.
-Abbott’s maximum capacity is 85 MW for electricity and 800 klbs/h for steam.
-%% Purchased
-Similar to natural gas, the university purchases electricity with the assistance of a market advisor.
-The university works with Prairieland Energy, Inc. to determine volumes and price points for future purchases of electricity, with the goal of providing cost effective utilities \cite [7].
-%% Wind
-The Rail Splitter Wind Farm has 67 wind turbines of 1.5 MW each, providing the farm a maximum power output of 100.5 MW.
-Due to a power purchase agreement, the university buys an 8.6\% of the total wind generation from the farm \cite [7-8].
-%% Solar
-The Solar Farm 1.0 comprises 18,867 modules, which cover a land area of 20.8 acres and produce a power output of 4.68 MW \cite[7, 9-11].
-This work considers the small scale solar component to be negligible.
 
 \begin{figure}[htbp!] %or H 
     \centering
     \includegraphics[width=0.90\linewidth]{figures/elec-distrib}
     \hfill
-    \caption{UIUC campus electricity generation distribution in fiscal year 2019.}
+    \caption{Distribution of electricity generation of UIUC campus in fiscal year 2019 \cite{isee_illinois_2020}.}
     \label{fig:elec-distrib}
 \end{figure}
 
-% Objectives
-The main objective of this work is to analyze several electricity generation alternatives for decreasing CO$_2$ emissions on UIUC campus.
-For this reason, this paper evaluates a scenario increasing wind and solar generation capacity.
-Due to the non-dispatchable nature of wind and solar generation, such a scenario requires the addition of energy storage mechanisms.
-This paper also considers a second scenario increasing wind and solar generation capacity, as well as adding a nuclear reactor into the mix.
+% UIUC
+% This work focuses on the decarbonization of UIUC campus grid, aligning its objectives with the Illinois Climate Action Plan (iCAP) \cite{institute_for_sustainability_energy_and_environment_illinois_2015, institute_for_sustainability_energy_and_environment_illinois_2020}.
+% In 2008, UIUC signed the American College and University Presidents’ Climate Commitment, formally committing to becoming carbon neutral as soon as possible, no later than 2050.
+% The university developed the iCAP in 2010 as a comprehensive roadmap toward a sustainable campus environment.
 
+This work studies several energy alternatives for decarbonizing the \gls{UIUC} campus grid.
+The alternatives presented here can be extrapolated to any other grid.
+We focus on the \gls{UIUC} campus grid because it is a well-characterized grid integrating a diverse mix of energy sources, as shown in Figure \ref{fig:elec-distrib}.
+% Campus Grid
+%% Abbott
+The Abbott Power Plant is a co-generation facility that supplies to the campus with electricity and steam.
+The plant has multiple gas turbines and boilers that run on natural gas, fuel oil or coal.
+The production of high-pressure steam spins a turbine to drive a generator and produce electricity.
+The low-pressure exhaust steam fulfills the space heating, water heating, and space cooling requirements from campus.
+Abbott’s maximum capacity is 85 MW for electricity and 800 klbs/h for steam \cite{uiucfs_abbott_nodate}.
+%% Purchased
+With the goal of providing cost effective utilities, the university purchases electricity with the assistance of a market advisor \cite{uiucfs_energy_2015}.
+%% Wind
+The Rail Splitter Wind Farm has 67 wind turbines of 1.5 MW each, providing the farm a maximum power output of 100.5 MW.
+Due to a power purchase agreement, the university buys an 8.6\% of the total wind generation from the farm \cite{rail_splitter_illinois_2016, uiucfs_energy_2015}.
+%% Solar
+The Solar Farm 1.0 comprises 18,867 modules, which cover a land area of 20.8 acres and produce a power output of 4.68 MW \cite{uiucfs_solar_2017}.
+The small scale solar generation comprises all the solar generation distributed around campus.
+This work considers the small scale solar component to be negligible.
+
+% Objectives
+The main objective of this work is to analyze multiple electricity generation alternatives for decreasing CO$_2$ emissions on UIUC campus.
+For this reason, this paper evaluates two scenarios increasing wind and solar generation capacity.
+The second scenario also considers the addition of a nuclear reactor into the mix.
+Due to the non-dispatchable nature of wind and solar generation, both scenarios incorporate electricity storage mechanisms.
 
 
 \section{Electricity Storage Mechanisms}
 
-This work considers two energy storage mechanisms, Li-ion batteries and hydrogen produced via electrolysis of water.
-This section briefly describes each of them and their integration into the energy mix.
+This work considers two storage mechanisms, Li-ion batteries and hydrogen produced via electrolysis of water.
+This section briefly describes each of them and their integration into the grid.
 
 % Li-ion
 The first prototype of a Li-ion battery was developed in 1985, becoming recently popular in the last two decades.
 Li-ion batteries are rechargeable and are commonly used in laptops and cellphones, in Electric Vehicles (EVs), in Uninterruptible Power Supplies (UPS), for applications such as computers, communication technology, and medical technology.
 This type of battery is characterized for its high energy density and low self-discharge.
-Additionally, it has a charge-discharge efficiency of 80-90\%, making a good candidate for electricity storage \cite[13-17].
+Additionally, it has a charge-discharge efficiency of 80-90\%, making it a good candidate for electricity storage \cite{sun_car_2010}.
 
 % Hydrogen
 The electrolysis of water is a well-known process whose commercial use began in 1890.
 This process produces approximately 4\% of the worldwide H$_2$.
-The process is ecologically clean because it does not emit GHGs.
-However, in comparison with other methods, electrolysis is a highly energy-demanding technology.
+% The process is ecologically clean because it does not emit GHGs.
+% However, in comparison with other methods, electrolysis is a highly energy-demanding technology.
 Three electrolysis technologies exist.
-Alkaline-based is the most common, the most developed, and the lowest in capital cost.
-It has the lowest efficiency and, therefore, the highest electrical energy cost.
+Alkaline-based is the most common, the most developed, the lowest in capital cost, and the lowest in efficiency.
 Proton exchange membrane (PEM) electrolyzers are more efficient but more expensive than Alkaline electrolyzers.
 Solid Oxide Electrolysis Cells (SOEC) electrolyzers are the most electrically efficient but the least developed.
-SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
-The first two technologies work with liquid water, and the latter requires high-temperature steam, so this work refers to the first two as Low-Temperature Electrolysis (LTE) and the latter as High-Temperature Electrolysis (HTE) \cite[1].
-
+% SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
+The first two technologies work with liquid water, and the latter requires high-temperature steam, so this work refers to the first two as Low-Temperature Electrolysis (LTE) and the latter as High-Temperature Electrolysis (HTE) \cite{fairhurst-agosta_multi-physics_2020}.
 % Still Hydrogen
 Water electrolysis converts electric and thermal energy into chemical energy stored in hydrogen.
-The process enthalpy change $\Delta H$ determines the required energy for the electrolysis reaction to
-take place
+The process enthalpy change $\Delta H$ determines the required energy for the electrolysis reaction to take place
 \begin{align}
-\Delta H = \Delta G + T \Delta S
+  \Delta H = \Delta G + T \Delta S
 \end{align}
 where $\Delta G$ is the specific electrical energy and $T \Delta S$ the specific thermal energy.
 
-In LTE, electricity generates the thermal energy.
-Hence, $\Delta H$ determines the process’s energy requirement.
-$\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
 
-In HTE, a high-temperature heat source is necessary to provide the thermal energy.
-% Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
-$\Delta G$ decreases with increasing temperatures, as seen in Figure \ref{fig:hte-energy}.
-Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
+% Specify energy requirements of both methods: LTE and HTE
+% Specify how much energy can be generated with 1 kg of hydronge
+% Then calculate the charge-discharge efficiency.
 
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/hte-energy}
-    \hfill
-    \caption{Energy required by electrolysis at atmospheric pressure.}
-    \label{fig:hte-energy}
-\end{figure}
+
+
+% In LTE, electricity generates the thermal energy.
+% Hence, $\Delta H$ determines the process’s energy requirement.
+% $\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
+
+% In HTE, a high-temperature heat source is necessary to provide the thermal energy.
+% % Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
+% $\Delta G$ decreases with increasing temperatures, as seen in Figure \ref{fig:hte-energy}.
+% Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
+
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/hte-energy}
+%     \hfill
+%     \caption{Energy required by electrolysis at atmospheric pressure.}
+%     \label{fig:hte-energy}
+% \end{figure}
 
 
 \section{Methodology}
 
 
+% This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0:
 
-This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0:
+% \begin{itemize}
+% \item \textbf{Scenario 0} considers the business as usual case, in which the CO$_2$ production is calculated using the energy production hourly data.
+% The data used in this work is available from UIUC Facilities and Servicies per request \cite [18].
+% Abbott and the purchased electricity are estimated to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite{institute_for_sustainability_energy_and_environment_illinois_2015, institute_for_sustainability_energy_and_environment_illinois_2020}.
 
-\begin{itemize}
-\item \textbf{Scenario 0} considers the business as usual case, in which the CO$_2$ production is calculated using the energy production hourly data.
-The data used in this work is available from UIUC Facilities and Servicies per request \cite [18].
-Abbott and the purchased electricity are estimated to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite [3-4].
+% \item \textbf{Scenario 1} studies the case in which the wind and solar generation capacity increase up to ten times fold.
+% The addition of electricity storage mechanisms is necessary and becomes part of the energy mix. 
+% Additionally, the development of a dispatch model is necessary to calculate the new electricity production from Abbott and the purchased electricity, as well as the energy being stored.
+% Such a model, gives priority to the different sources in the following order: renewable sources, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
+% Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
+% The \gls{ND} is calculated substracting the wind and solar generation from the total demand.
 
-\item \textbf{Scenario 1} studies the case in which the wind and solar generation capacity increase up to ten times fold.
-The addition of electricity storage mechanisms is necessary and becomes part of the energy mix. 
-Additionally, the development of a dispatch model is necessary to calculate the new electricity production from Abbott and the purchased electricity, as well as the energy being stored.
-Such a model, gives priority to the different sources in the following order: renewable sources, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
-Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
-The \gls{ND} is calculated substracting the wind and solar generation from the total demand.
+% \item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
+% A second dispatch model calculates the new electricity production from Abbott and the purchased electricity.
+% This model gives priority to the different sources in the following order: renewable sources, nuclear reactor, storage mechanism, Abbott, and purchases.
+% The \gls{ND} is calculated substracting the wind, solar, and nuclear generation from the total demand.
 
-\item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
-A second dispatch model calculates the new electricity production from Abbott and the purchased electricity.
-This model gives priority to the different sources in the following order: renewable sources, nuclear reactor, storage mechanism, Abbott, and purchases.
-The \gls{ND} is calculated substracting the wind, solar, and nuclear generation from the total demand.
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/dispatch-model}
+%     \hfill
+%     \caption{Dispatch model to calculate the hourly generation of the different sources. \textit{ND} is the net demand.}
+%     \label{fig:dispatch-model}
+% \end{figure}
 
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/dispatch-model}
-    \hfill
-    \caption{Dispatch model to calculate the hourly generation of the different sources. \textit{ND} is the net demand.}
-    \label{fig:dispatch-model}
-\end{figure}
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/reactor-hydrogen}
+%     \hfill
+%     \caption{Diagram of a nuclear reactor supplying the grid and a hydrogen plant.}
+%     \label{fig:reactor-hydrogen}
+% \end{figure}
 
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/reactor-hydrogen}
-    \hfill
-    \caption{Diagram of a nuclear reactor supplying the grid and a hydrogen plant.}
-    \label{fig:reactor-hydrogen}
-\end{figure}
+% After calculating the hourly generation by source, the integration of the total energy allows to calculate the emissions from Abbott and the purchased electricity.
 
-After calculating the hourly generation by source, the integration of the total energy allows to calculate the emissions from Abbott and the purchased electricity.
-
-Summer month is June.
+% Summer month is June.
 
 
 \section{Results}
 
-% Add here the figures I want, then, try to condense them.
-% Scenario 0
-Table \ref{tab:scenario0} displays the results for Scenario 0.
-Winter total demand is lower than in summer, making emissions lower for the former.
-This could be caused by a lower occupancy of campus during January or by the fact that campus uses mostly steam for heating.
+% % Add here the figures I want, then, try to condense them.
+% % Scenario 0
+% Table \ref{tab:scenario0} displays the results for Scenario 0.
+% Winter total demand is lower than in summer, making emissions lower for the former.
+% This could be caused by a lower occupancy of campus during January or by the fact that campus uses mostly steam for heating.
 
-\begin{table}[htbp!]
-  \centering
-  \caption{.}
-  \label{tab:scenario0}
-  \begin{tabularx}{\textwidth}{@{}*4{>{\hsize=.56\hsize\centering\arraybackslash}X}@{}}
-  \toprule
-  10$_3$ MT CO$_2$ & Abbott & Purchased & Total \\
-  \midrule
-  Winter &  6.6 &  8.5 & 15.1 \\
-  Summer &  4.8 & 16.7 & 21.5 \\
-  \bottomrule
-  \end{tabularx}
-\end{table}
+% \begin{table}[htbp!]
+%   \centering
+%   \caption{.}
+%   \label{tab:scenario0}
+%   \begin{tabularx}{\textwidth}{@{}*4{>{\hsize=.56\hsize\centering\arraybackslash}X}@{}}
+%   \toprule
+%   10$_3$ MT CO$_2$ & Abbott & Purchased & Total \\
+%   \midrule
+%   Winter &  6.6 &  8.5 & 15.1 \\
+%   Summer &  4.8 & 16.7 & 21.5 \\
+%   \bottomrule
+%   \end{tabularx}
+% \end{table}
 
 
-% Scenario 1
-We only on the Summer month (June) when the emissions are higher.
+% % Scenario 1
+% We only on the Summer month (June) when the emissions are higher.
 
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/scenario1-summerA}
-    \hfill
-    \caption{CO$_2$ emissions an increase in the capacity factors of wind and solar generation in a summer month for Scenario 1.}
-    \label{fig:emissions-1-summer}
-\end{figure}
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/scenario1-summerA}
+%     \hfill
+%     \caption{CO$_2$ emissions an increase in the capacity factors of wind and solar generation in a summer month for Scenario 1.}
+%     \label{fig:emissions-1-summer}
+% \end{figure}
 
-% Scenario 2
+% % Scenario 2
 
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/scenario2-summerB}
-    \hfill
-    \caption{CO$_2$ emissions an increase in the capacity factors of wind and solar generation in a summer month for Scenario 2.}
-    \label{fig:emissions-2-summer}
-\end{figure}
+% \begin{figure}[htbp!] %or H 
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/scenario2-summerB}
+%     \hfill
+%     \caption{CO$_2$ emissions an increase in the capacity factors of wind and solar generation in a summer month for Scenario 2.}
+%     \label{fig:emissions-2-summer}
+% \end{figure}
 
 
 \section{Conclusions}
