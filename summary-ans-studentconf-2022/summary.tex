@@ -121,9 +121,10 @@ This section briefly describes each of them and their integration into the grid.
 
 % Li-ion
 The first prototype of a Li-ion battery was developed in 1985, becoming recently popular in the last two decades.
-Li-ion batteries are rechargeable and are commonly used in laptops and cellphones, in Electric Vehicles (EVs), in Uninterruptible Power Supplies (UPS), for applications such as computers, communication technology, and medical technology.
-This type of battery is characterized for its high energy density and low self-discharge.
+Li-ion batteries are rechargeable and are commonly used in laptops and cellphones, electric vehicles, Uninterruptible Power Supplies (UPS), and for applications such as computers, communication technology, and medical technology.
+A high energy density and low self-discharge characterize this type of battery.
 Additionally, it has a charge-discharge efficiency of 80-90\%, making it a good candidate for electricity storage \cite{sun_car_2010}.
+This work considers the charge-discharge efficiency of Li-ion batteries to be 85\%.
 
 % Hydrogen
 The electrolysis of water is a well-known process whose commercial use began in 1890.
@@ -135,7 +136,7 @@ Alkaline-based is the most common, the most developed, the lowest in capital cos
 Proton exchange membrane (PEM) electrolyzers are more efficient but more expensive than Alkaline electrolyzers.
 Solid Oxide Electrolysis Cells (SOEC) electrolyzers are the most electrically efficient but the least developed.
 % SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
-The first two technologies work with liquid water, and the latter requires high-temperature steam, so this work refers to the first two as Low-Temperature Electrolysis (LTE) and the latter as High-Temperature Electrolysis (HTE) \cite{fairhurst-agosta_multi-physics_2020}.
+The first two technologies work with liquid water, and the latter requires high-temperature steam, so this work refers to the first two as \gls{LTE} and the latter as \gls{HTE} \cite{fairhurst-agosta_multi-physics_2020}.
 % Still Hydrogen
 Water electrolysis converts electric and thermal energy into chemical energy stored in hydrogen.
 The process enthalpy change $\Delta H$ determines the required energy for the electrolysis reaction to take place
@@ -144,58 +145,72 @@ The process enthalpy change $\Delta H$ determines the required energy for the el
 \end{align}
 where $\Delta G$ is the specific electrical energy and $T \Delta S$ the specific thermal energy.
 
+In LTE, electricity generates the thermal energy.
+Hence, $\Delta H$ determines the process’s energy requirement.
+$\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
 
-% Specify energy requirements of both methods: LTE and HTE
-% Specify how much energy can be generated with 1 kg of hydronge
-% Then calculate the charge-discharge efficiency.
+In HTE, a high-temperature heat source is necessary to provide the thermal energy.
+Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
+$\Delta G$ decreases with increasing temperatures, as shown in Figure \ref{fig:hte-energy}.
+Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
 
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/hte-energy}
+    \hfill
+    \caption{Energy required by high-temperature electrolysis at atmospheric pressure.}
+    \label{fig:hte-energy}
+\end{figure}
 
-
-% In LTE, electricity generates the thermal energy.
-% Hence, $\Delta H$ determines the process’s energy requirement.
-% $\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrical efficiency.
-
-% In HTE, a high-temperature heat source is necessary to provide the thermal energy.
-% % Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
-% $\Delta G$ decreases with increasing temperatures, as seen in Figure \ref{fig:hte-energy}.
-% Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
-
-% \begin{figure}[htbp!] %or H 
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/hte-energy}
-%     \hfill
-%     \caption{Energy required by electrolysis at atmospheric pressure.}
-%     \label{fig:hte-energy}
-% \end{figure}
+After converting the excess of energy into hydrogen, it can be stored until the grid requires it.
+The conversion of hydrogen produces 40 kWh/kg-H$_2$ \cite{ursua_hydrogen_2012}.
+However, conventional fuel cells can use up to 60\% of that energy \cite{doe_energy_fuel_2015}.
 
 
 \section{Methodology}
 
 
-% This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0:
+This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0:
 
-% \begin{itemize}
-% \item \textbf{Scenario 0} considers the business as usual case, in which the CO$_2$ production is calculated using the energy production hourly data.
-% The data used in this work is available from UIUC Facilities and Servicies per request \cite [18].
-% Abbott and the purchased electricity are estimated to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite{institute_for_sustainability_energy_and_environment_illinois_2015, institute_for_sustainability_energy_and_environment_illinois_2020}.
+\begin{itemize}
+\item \textbf{Scenario 0} considers the business as usual case.
 
-% \item \textbf{Scenario 1} studies the case in which the wind and solar generation capacity increase up to ten times fold.
+
+
+% in which the CO$_2$ production is calculated using the energy production hourly data.
+% The data used in this work is available from UIUC Facilities and Servicies per request.
+% Abbott and the purchased electricity are estimated to emit 0.26 tCO2/MW(th)h and 0.825 tCO2/MWh, respectively \cite{isee_illinois_2015, isee_illinois_2020}.
+
+
+\item \textbf{Scenario 1} studies the increase of the wind and solar generation capacity up to ten times fold.
+
 % The addition of electricity storage mechanisms is necessary and becomes part of the energy mix. 
 % Additionally, the development of a dispatch model is necessary to calculate the new electricity production from Abbott and the purchased electricity, as well as the energy being stored.
 % Such a model, gives priority to the different sources in the following order: renewable sources, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
 % Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
 % The \gls{ND} is calculated substracting the wind and solar generation from the total demand.
 
-% \item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
+\item \textbf{Scenario 2} is similar to Scenario 1 but considers the addition of a nuclear reactor into the mix.
+
 % A second dispatch model calculates the new electricity production from Abbott and the purchased electricity.
 % This model gives priority to the different sources in the following order: renewable sources, nuclear reactor, storage mechanism, Abbott, and purchases.
 % The \gls{ND} is calculated substracting the wind, solar, and nuclear generation from the total demand.
+
+\end{itemize}
+
+% UIUC campus demand is typically smaller than 80 MW.
+% Accordingly, the following analyses consider reactors of small capacities, such as microreactors and small modular reactors (SMRs).
+% These reactor concepts share several features.
+% The reactors require limited on-site preparation as their components are factory-fabricated and shipped out to the generation site.
+% These reactors allow for black starts, being capable of starting up from an utterly de-energized state without receiving power from the grid.
+% They can also operate in islanding mode, being able to operate connected to the grid or independently.
+% Moreover, these reactors use passive safety systems, minimizing electrical parts \cite{us-doe_ultimate_2019}.
 
 % \begin{figure}[htbp!] %or H 
 %     \centering
 %     \includegraphics[width=0.90\linewidth]{figures/dispatch-model}
 %     \hfill
-%     \caption{Dispatch model to calculate the hourly generation of the different sources. \textit{ND} is the net demand.}
+%     \caption{Scenario 1 and 2 dispatch model that calculates the hourly generation of the different sources. \textit{ND} is the net demand.}
 %     \label{fig:dispatch-model}
 % \end{figure}
 
