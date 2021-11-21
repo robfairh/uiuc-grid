@@ -152,7 +152,8 @@ $\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolizer electrica
 In HTE, a high-temperature heat source is necessary to provide the thermal energy.
 Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
 $\Delta G$ decreases with increasing temperatures, as shown in Figure \ref{fig:hte-energy}.
-Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
+% Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
+Decreasing the electricity requirement results in higher overall production efficiencies.
 
 \begin{figure}[htbp!] %or H 
     \centering
@@ -219,6 +220,14 @@ $\beta$ and $\gamma$ are calculated by the dispatch model.
     \label{fig:reactor-hydrogen}
 \end{figure}
 
+This scenario considers 2 reactor power levels, 10 and 20 MW$_{th}$, and 2 reactor outlet temperatures, 300 and 850 $^\circ$C.
+Conventional \glspl{LWR} -- with outlet temperatures of 300$^\circ$C -- have efficiencies around 33\% while Gen-IV reactors, for example \glspl{VHTR} -- with outlet temperatures of 850$^\circ$C -- can achieve higher efficiencies around 48\% \cite{fairhurst-agosta_multi-physics_2020}.
+Moreover, HTE requires high temperatures which conventional LWRs cannot achieve.
+This also means that the HTE hydrogen production is limited by the reactor power, as solar or wind generation only produce electricity.
+HTE hydrogen is produced only when the net demand is lower or equal in magnitude than the reactor power.
+When the net demand is negative and has a larger magnitude than the reactor power, a secondary storage mechanism becomes necessary.
+These case studies use H2-LTE as secondary storage mechanism.
+
 
 \section{Results}
 
@@ -243,6 +252,15 @@ Given that summer emissions are higher than in the winter, the following analyse
   \end{tabularx}
 \end{table}
 
+% Figure - Scenario 1 - Electricity generation distribution
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/scenario1-summerB}
+    \hfill
+    \caption{Scenario 1 hourly generation distribution by source for a capacity increase factor of 10.}
+    \label{fig:1-summer-distrib}
+\end{figure}
+
 % Scenario 1
 Figure \ref{fig:1-summer-distrib} displays an example of the hourly distribution calculated by the dispatch model.
 Subtracting the wind and solar generation from the demand allows to calculate the stored electricity, Abbott production, and the purchased electricity.
@@ -256,15 +274,6 @@ The campus wind and solar capacities can be increased up to 25.9 and 14 MW respe
 Once, the energy storage is needed, the higher the charge-discharge efficiency, the larger the reduction is.
 This scenario achieves a higher CO$_2$ reduction by means of Li-ion batteries.
 
-% Figure - Scenario 1 - Electricity generation distribution
-\begin{figure}[htbp!] %or H 
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/scenario1-summerB}
-    \hfill
-    \caption{Scenario 1 hourly generation distribution by source for a capacity increase factor of 10.}
-    \label{fig:1-summer-distrib}
-\end{figure}
-
 % Figure - Scenario 1 - CO2 emissions / Capacities
 \begin{figure}[htbp!] %or H 
     \centering
@@ -274,25 +283,37 @@ This scenario achieves a higher CO$_2$ reduction by means of Li-ion batteries.
     \label{fig:1-summer-emissions}
 \end{figure}
 
+% Scenario 2
+Figure \ref{fig:2-summer-10-emissions} shows the CO$_2$ emissions and the respective wind, solar, and storage capacities for the different capacity increase factors considering a reactor power of 10 MW$_{th}$.
+Once again, the Li-ion batteries show the largest reduction in CO$_2$ emissions.
+On the other hand, increasing the solar and wind capacity 10 times fold requires Li-ion batteries with larger capacities than the wind generation or the solar generation, being close to the 100 MW, which is even larger than the campus total demand.
 
+As mentioned earlier, a higher reactor outlet temperature translates into higher efficiencies, and for the same reactor thermal power, a higher electrical output can be achieved.
+H2-HTE does not show great advantages over H2-LTE, highlighting that a high outlet temperature is still desirable but only for attaining greater efficiencies.
+Additionally, the use of the nuclear reactor reduces the CO$_2$ emissions but does not eliminate them.
 
+% Figure - Scenario 2 - CO2 emissions / Capacities for a 10 MWth-Reactor
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/scenario2-10-summer-emissions}
+    \hfill
+    \caption{Scenario 2 CO$_2$ emissions for different increases in the wind and solar generation capacities, with a 10 MW$_{th}$ reactor.}
+    \label{fig:2-summer-10-emissions}
+\end{figure}
 
+Figure \ref{fig:2-summer-20-emissions} displays the results for the case considering a reactor of 20 MW$_{th}$.
+The Li-ion batteries show the best performance.
+A higher reactor power translates into a higher CO$_2$ reduction.
+Additionally, a higher reactor power allows for an increase in the hydrogen production, and the H2-LTE and the H2-HTE curves show a wider separation.
 
-
-
-
-
-
-
-% % Scenario 2
-
-% \begin{figure}[htbp!] %or H 
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/scenario2-summerB}
-%     \hfill
-%     \caption{CO$_2$ emissions an increase in the capacity factors of wind and solar generation in a summer month for Scenario 2.}
-%     \label{fig:emissions-2-summer}
-% \end{figure}
+% Figure - Scenario 2 - CO2 emissions / Capacities for a 20 MWth-Reactor
+\begin{figure}[htbp!] %or H 
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/scenario2-20-summer-emissions}
+    \hfill
+    \caption{Scenario 2 CO$_2$ emissions for different increases in the wind and solar generation capacities, with a 20 MW$_{th}$ reactor.}
+    \label{fig:2-summer-20-emissions}
+\end{figure}
 
 
 \section{Conclusions}
@@ -329,5 +350,3 @@ This scenario achieves a higher CO$_2$ reduction by means of Li-ion batteries.
 % \rho_0 \left[ \frac{\partial \vec{u}}{\partial t} + (\vec{u} \cdot \nabla)\vec{u} \right] &= - \nabla p + \mu \nabla^2 \vec{u} - \rho_0 \vec{g} \beta (T-T_0)
 % \end{align}
 
-% % Laminar vs turbulent
-% Gr/Ra
