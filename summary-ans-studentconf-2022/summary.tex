@@ -49,26 +49,11 @@ ref3@illinois.edu
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Outline
-
-%Introduction
-%%Motivation
-%%Objectives
-
-%Storage Mechanisms
-
-%Methodology: How to calculate everything
-%%Scenarios/Dispatch models
-
-%Results
-
-%Conclusions
-
 
 \section{Introduction}
 
 % Motivation: Why is decarbonization necessary
-Energy is one of the largest contributors to economic growth.
+Energy is one of the major contributors to economic growth.
 In the future, economies and populations will continue to expand, and their energy demand will accompany such a change.
 Meeting these future needs requires the development of clean energy sources to ease the increasing environmental concerns.
 In 2019, electricity generation was one of the economic sectors that released the most \glspl{GHG} in the US \cite{us_epa_sources_2015}.
@@ -101,11 +86,10 @@ Abbott’s maximum capacity is 85 MW for electricity and 800 klbs/h for steam \c
 To provide cost-effective utilities, the university purchases electricity with the assistance of a market advisor \cite{uiucfs_energy_2015}.
 %% Wind
 The Rail Splitter Wind Farm has 67 wind turbines of 1.5 MW each, providing the farm a maximum power output of 100.5 MW.
-Due to a power purchase agreement, the university buys 8.6\% of the total wind generation from the farm \cite{rail_splitter_illinois_2016, uiucfs_energy_2015}.
+Through a power purchase agreement, the university buys 8.6\% of the wind farm's total generation \cite{rail_splitter_illinois_2016, uiucfs_energy_2015}.
 %% Solar
 The Solar Farm 1.0 comprises 18,867 modules, which cover a land area of 20.8 acres and produce a power output of 4.68 MW \cite{uiucfs_solar_2017}.
-The small-scale solar generation comprises all the solar generation distributed around campus.
-This work considers the small-scale solar component to be negligible.
+The small-scale solar generation comprises all the solar generation distributed around campus, considered negligible in this work.
 
 % Objectives
 The main objective of this work is to analyze multiple electricity generation alternatives for decreasing CO$_2$ emissions on the UIUC campus.
@@ -121,18 +105,18 @@ This section briefly describes each of them and their integration into the grid.
 
 % Li-ion
 The first prototype of a Li-ion battery was developed in 1985, becoming recently popular in the last two decades.
-Li-ion batteries are rechargeable and are commonly used in laptops and cellphones, electric vehicles, Uninterruptible Power Supplies (UPS), and for applications such as computers, communication technology, and medical technology.
+Li-ion batteries are rechargeable and are commonly used in laptops, cellphones, electric vehicles, Uninterruptible Power Supplies (UPS), and for communication and medical applications.
 A high energy density and low self-discharge characterize this type of battery.
-Additionally, it has a charge-discharge efficiency of 80-90\%, making it a good candidate for electricity storage \cite{sun_car_2010}.
+Additionally, its charge-discharge efficiency of 80-90\% makes it a good candidate for electricity storage \cite{sun_car_2010}.
 This work considers the charge-discharge efficiency of Li-ion batteries to be 85\%.
 
 % Hydrogen
 The electrolysis of water is a well-known process whose commercial use began in 1890.
-This process produces approximately 4\% of the worldwide H$_2$.
+This process produces approximately 4\% of the worldwide hydrogen.
 % The process is ecologically clean because it does not emit GHGs.
 % However, in comparison with other methods, electrolysis is a highly energy-demanding technology.
 Three electrolysis technologies exist.
-Alkaline-based is the most common, the most developed, the lowest in capital cost, and has the lowest efficiency.
+Alkaline-based is the most common, the most developed, the lowest in capital cost, and least efficient.
 Proton exchange membrane (PEM) electrolyzers are more efficient but more expensive than Alkaline electrolyzers.
 Solid Oxide Electrolysis Cells (SOEC) electrolyzers are the most electrically efficient but the least developed.
 % SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
@@ -147,28 +131,30 @@ The process enthalpy change $\Delta H$ determines the required energy for the el
 where $\Delta G$ is the specific electrical energy and $T \Delta S$, the specific thermal energy.
 
 In LTE, electricity generates the necessary thermal energy.
-Hence, $\Delta H$ determines the process’s energy requirement.
-$\Delta H$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolyzer electrical efficiency.
+Hence, $\Delta G$ determines the entire process’s energy requirement.
+$\Delta G$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolyzer electrical efficiency.
 
-In HTE, a high-temperature heat source is necessary to provide the necessary thermal energy.
-Scenario 2 considers HTE as an energy storage mechanism, where a nuclear reactor supplies the thermal energy.
+In HTE, a high-temperature heat source provides the necessary thermal energy.
 $\Delta G$ decreases with increasing temperatures, as shown in Figure \ref{fig:hte-energy}.
 % Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
 Decreasing the electricity requirement results in higher overall production efficiencies.
+This work considers the process to be at 3.5 MPa.
+Although $\Delta G$ increases with pressure, a high pressure saves energy, as compressing liquid water is cheaper than compressing the hydrogen.
+In his work, $\Delta G$ and $T \Delta S$ are 31.6 and 9.7 kWh/kg-H$_2$ for a reactor outlet temperature of 850 $^\circ$C, respectively.
+% In his work, $\Delta G$ and $T \Delta S$ are 31.6 and 9.7 kWh/kg-H$_2$ for an electrolysis temperature of 824.5 $^\circ$C, respectively.
+% This work considers a reactor outlet temperature of 850 and an efficiency of 97%, 0.97*850 = 824.5
 
 \begin{figure}[htbp!] %or H 
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/hte-energy}
+    \includegraphics[width=0.90\linewidth]{figures/hte-energy-P}
     \hfill
-    \caption{Energy required by high-temperature electrolysis at atmospheric pressure.}
+    \caption{Energy required by high-temperature electrolysis at 3.5 MPa. Image reproduced from \cite{fairhurst-agosta_multi-physics_2020}.}
     \label{fig:hte-energy}
 \end{figure}
 
 After converting the excess energy into hydrogen, it is stored until the grid requires it.
 The conversion of hydrogen produces 40 kWh/kg-H$_2$ \cite{ursua_hydrogen_2012}.
 However, conventional fuel cells can use up to 60\% of that energy \cite{doe_energy_fuel_2015}.
-
-% I haven't mentioned that the HTE happens at 3.5 MPa
 
 
 \section{Methodology}
@@ -178,7 +164,7 @@ This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to
 
 \textbf{Scenario 0} considers the business as usual case.
 We calculate the CO$_2$ emissions using the electricity production hourly data.
-These data are available from UIUC Facilities and Services per request.
+These data are available per request from UIUC Facilities and Services.
 To narrow down the scope, we focus on months of the two most demanding seasons of the year, January for the winter and June for the summer.
 % Abbott and the purchased electricity are estimated to emit 0.26 tCO$_2$/MW(th)h and 0.825 tCO$_2$/MWh, respectively \cite{isee_illinois_2015, isee_illinois_2020}.
 % I haven't mentioned that we consider abbot to have a thermal efficiency of 60 \%
@@ -190,7 +176,7 @@ The increase in the wind and solar generation capacity requires the addition of 
 The development of a dispatch model is necessary to calculate the energy being stored, Abbott hourly production, and the purchased electricity.
 This model gives priority to the different sources in the following order: wind and solar, storage mechanism, Abbott, and purchases, as shown in Figure \ref{fig:dispatch-model}.
 The \gls{ND} is calculated by subtracting the wind and solar generation from the total demand.
-Abbott’s electricity generation is preferred over imports because of their lower CO$_2$ emissions.
+Abbott’s electricity generation is preferred over purchases because of their lower CO$_2$ emissions.
 
 \begin{figure}[htbp!] %or H 
     \centering
@@ -204,14 +190,26 @@ Abbott’s electricity generation is preferred over imports because of their low
 This model gives priority to the different sources in the following order: wind and solar, nuclear reactor, storage mechanism, Abbott, and purchases.
 The \gls{ND} is calculated by subtracting the wind, solar, and nuclear generation from the total demand.
 Given that UIUC campus demand is typically smaller than 80 MW, the following analyses consider reactors of small capacities, such as microreactors.
-This type of reactor requires limited on-site preparation as their components are factory-fabricated and shipped out to the generation site.
+This type of reactor show several advantages such as requiring limited on-site preparation as their components are factory-fabricated and shipped out to the generation site.
 Moreover, these reactors use passive safety systems, minimizing electrical parts \cite{us-doe_ultimate_2019}.
 % They allow for black starts, being capable of starting up from an utterly de-energized state without receiving power from the grid.
 % They can also operate in islanding mode, being able to operate connected to the grid or independently.
 
+This scenario considers 2 reactor power levels, 10 and 20 MW$_{th}$, and 2 reactor outlet temperatures, 300 and 850 $^\circ$C.
+Conventional \glspl{LWR} -- with outlet temperatures of 300$^\circ$C -- have efficiencies around 33\% while Gen-IV reactors, for example, \glspl{VHTR} -- with outlet temperatures of 850 $^\circ$C -- can achieve higher efficiencies around 48\% \cite{fairhurst-agosta_multi-physics_2020}.
+
 Depending on the preferred electrolysis method, the microreactor can supply the hydrogen plant with both electricity and thermal power, as shown in Figure \ref{fig:reactor-hydrogen}, where $\eta$ is the thermal-to-electric conversion efficiency, and $\beta$ and $\gamma$ determine the distribution of the reactor thermal power P$_{th}$ into P$_E$, P$_{EH2}$, and P$_{TH2}$.
-$\eta$ is a constant dependent on the reactor outlet temperature.
-$\beta$ and $\gamma$ are calculated by the dispatch model.
+P$_E$ is calculated by the dispatch model.
+The following formulas allow to calculate all the rest of the model variables
+
+\begin{align}
+  \beta = \frac{P_{E}}{\eta P_{th}}&, \; \gamma = \frac{\Delta G / \eta}{\Delta G / \eta + T \Delta S} \\
+  \dot{m_{H2}} &= \frac{\gamma (1-\beta) \eta P_{th}}{\Delta G} \\
+  P_{EH2} = \dot{m_{H2}} \Delta G&, \;  P_{TH2} = \dot{m_{H2}} T \Delta S
+\end{align}
+
+where $\dot{m_{H2}}$ is the hydrogen production rate.
+This work considers an $\eta$ of 0.32 for a reactor outlet of 300 $^\circ$C and 0.49 for a reactor outlet of 850 $^\circ$C.
 
 \begin{figure}[htbp!] %or H 
     \centering
@@ -221,13 +219,12 @@ $\beta$ and $\gamma$ are calculated by the dispatch model.
     \label{fig:reactor-hydrogen}
 \end{figure}
 
-This scenario considers 2 reactor power levels, 10 and 20 MW$_{th}$, and 2 reactor outlet temperatures, 300 and 850 $^\circ$C.
-Conventional \glspl{LWR} -- with outlet temperatures of 300$^\circ$C -- have efficiencies around 33\% while Gen-IV reactors, for example, \glspl{VHTR} -- with outlet temperatures of 850$^\circ$C -- can achieve higher efficiencies around 48\% \cite{fairhurst-agosta_multi-physics_2020}.
-Moreover, HTE requires high temperatures which conventional LWRs cannot achieve.
-This also means that the HTE hydrogen production is limited by the reactor power, as solar or wind generation only produce electricity.
-HTE hydrogen is produced only when the net demand is lower or equal in magnitude than the reactor electrical power.
-When the net demand is negative and has a larger magnitude than the reactor power, a secondary storage mechanism becomes necessary.
-These case studies use H2-LTE as secondary storage mechanism.
+Only the case considering a reactor with outlet temperature of 850 $^\circ$C can achieve the high temperatures required by the HTE.
+This means that the HTE hydrogen production (H2-HTE) is only available to this case.
+It also means that the H2-HTE is limited by the reactor power, as solar or wind generation only produce electricity.
+If the net demand is lower or equal in magnitude than the total reactor electrical power, H2-HTE is able to store all the excess energy.
+Otherwise, a secondary storage mechanism becomes necessary.
+This case studie employs LTE hydrogen production (H2-LTE) as secondary storage mechanism.
 
 
 \section{Results}
