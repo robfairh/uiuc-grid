@@ -55,9 +55,10 @@ ref3@illinois.edu
 % Motivation: Why is decarbonization necessary
 Energy is one of the major contributors to economic growth.
 In the future, economies and populations will continue to expand, and their energy demand will accompany such a change.
-Meeting these future needs requires the development of clean energy sources to ease the increasing environmental concerns.
+Meeting these future needs requires the addition of energy sources into the grid.
 In 2019, electricity generation was one of the economic sectors that released the most \glspl{GHG} in the US \cite{us_epa_sources_2015}.
-Decarbonizing electricity generation will allow us to meet the increases in energy demand and address the environmental concerns simultaneously.
+Decarbonizing electricity generation will allow us to meet the increases in demand and address the environmental concerns simultaneously.
+% Incorporating carbon-free energy sources will allow us to meet the increases in demand and address the environmental concerns simultaneously.
 
 \begin{figure}[htbp!] %or H 
     \centering
@@ -93,7 +94,7 @@ The small-scale solar generation comprises all the solar generation distributed 
 
 % Objectives
 The main objective of this work is to analyze multiple electricity generation alternatives for decreasing CO$_2$ emissions on the UIUC campus.
-For this reason, this paper evaluates two scenarios increasing wind and solar generation capacity.
+For this reason, this paper evaluates two scenarios increasing the wind and solar generation capacity.
 The second scenario also considers the addition of a nuclear reactor into the mix.
 Due to the non-dispatchable nature of wind and solar generation, both scenarios incorporate electricity storage mechanisms.
 
@@ -116,12 +117,13 @@ This process produces approximately 4\% of the worldwide hydrogen.
 % The process is ecologically clean because it does not emit GHGs.
 % However, in comparison with other methods, electrolysis is a highly energy-demanding technology.
 Three electrolysis technologies exist.
-Alkaline-based is the most common, the most developed, the lowest in capital cost, and least efficient.
+Alkaline-based is the most common, the most developed, the lowest in capital cost, and the least efficient.
 Proton exchange membrane (PEM) electrolyzers are more efficient but more expensive than Alkaline electrolyzers.
 Solid Oxide Electrolysis Cells (SOEC) electrolyzers are the most electrically efficient but the least developed.
 % SOEC technology has challenges with corrosion, seals, thermal cycling, and chrome migration.
 The first two technologies work with liquid water, and the latter requires high-temperature steam.
-So, this work refers to the first two methods as \gls{LTE} and the latter as \gls{HTE} \cite{fairhurst-agosta_multi-physics_2020}.
+This work refers to the first two technologies as \gls{LTE} and the latter as \gls{HTE} \cite{fairhurst-agosta_multi-physics_2020}.
+
 % Still Hydrogen
 Water electrolysis converts electric and thermal energy into chemical energy stored in hydrogen.
 The process enthalpy change $\Delta H$ determines the required energy for the electrolysis reaction to take place
@@ -129,11 +131,9 @@ The process enthalpy change $\Delta H$ determines the required energy for the el
   \Delta H = \Delta G + T \Delta S
 \end{align}
 where $\Delta G$ is the specific electrical energy and $T \Delta S$, the specific thermal energy.
-
 In LTE, electricity generates the necessary thermal energy.
 Hence, $\Delta G$ determines the entire process’s energy requirement.
 $\Delta G$ is equal to 60 kWh/kg-H$_2$ considering a 67\% electrolyzer electrical efficiency.
-
 In HTE, a high-temperature heat source provides the necessary thermal energy.
 $\Delta G$ decreases with increasing temperatures, as shown in Figure \ref{fig:hte-energy}.
 % Decreasing the electricity requirement results in higher overall production efficiencies since heat-engine-based electrical work has a thermal efficiency of 50\% or less.
@@ -160,7 +160,7 @@ However, conventional fuel cells can use up to 60\% of that energy \cite{doe_ene
 \section{Methodology}
 
 As mentioned earlier, the focus of this paper is to decrease the CO$_2$ emissions on the UIUC campus.
-This paper studies 2 energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0.
+This paper studies two energy alternatives, Scenario 1 and 2, and compares them to the default case, Scenario 0.
 
 \textbf{Scenario 0} considers the business as usual case.
 We calculate the CO$_2$ emissions using the electricity production hourly data.
@@ -190,7 +190,7 @@ Abbott’s electricity generation is preferred over purchases because of their l
 This model gives priority to the different sources in the following order: wind and solar, nuclear reactor, storage mechanism, Abbott, and purchases.
 The \gls{ND} is calculated by subtracting the wind, solar, and nuclear generation from the total demand.
 Given that UIUC campus demand is typically smaller than 80 MW, the following analyses consider reactors of small capacities, such as microreactors.
-This type of reactor show several advantages such as requiring limited on-site preparation as their components are factory-fabricated and shipped out to the generation site.
+This type of reactor shows several advantages such as requiring limited on-site preparation as their components are factory-fabricated and shipped out to the generation site.
 Moreover, these reactors use passive safety systems, minimizing electrical parts \cite{us-doe_ultimate_2019}.
 % They allow for black starts, being capable of starting up from an utterly de-energized state without receiving power from the grid.
 % They can also operate in islanding mode, being able to operate connected to the grid or independently.
@@ -224,7 +224,7 @@ This means that the HTE hydrogen production (H2-HTE) is only available to this c
 It also means that the H2-HTE is limited by the reactor power, as solar or wind generation only produce electricity.
 If the net demand is lower or equal in magnitude than the total reactor electrical power, H2-HTE is able to store all the excess energy.
 Otherwise, a secondary storage mechanism becomes necessary.
-This case studie employs LTE hydrogen production (H2-LTE) as secondary storage mechanism.
+This case study employs LTE hydrogen production (H2-LTE) as the secondary storage mechanism.
 
 
 \section{Results}
@@ -300,11 +300,6 @@ As mentioned earlier, a higher reactor outlet temperature translates into higher
 H2-HTE does not show considerable advantages over H2-LTE, highlighting that a high outlet temperature is still desirable but only for attaining higher efficiencies.
 Additionally, incorporating a 10 MW$_{th}$ microreactor reactor reduces the CO$_2$ emissions but does not eliminate them.
 
-Figure \ref{fig:2-summer-20-emissions} displays the results for the case considering a reactor of 20 MW$_{th}$.
-The Li-ion batteries show the best performance.
-A higher reactor power translates into a higher CO$_2$ reduction.
-Additionally, a higher reactor power allows for an increase in hydrogen production, and the H2-LTE and the H2-HTE curves show a wider separation.
-
 % Figure - Scenario 2 - CO2 emissions / Capacities for a 20 MWth-Reactor
 \begin{figure}[htbp!] %or H 
     \centering
@@ -313,6 +308,11 @@ Additionally, a higher reactor power allows for an increase in hydrogen producti
     \caption{Scenario 2 CO$_2$ emissions for different increases in the wind and solar generation capacities, with a 20 MW$_{th}$ reactor. $To$ is the reactor outlet temperature.}
     \label{fig:2-summer-20-emissions}
 \end{figure}
+
+Figure \ref{fig:2-summer-20-emissions} displays the results for the case considering a reactor of 20 MW$_{th}$.
+The Li-ion batteries show the best performance.
+A higher reactor power translates into a higher CO$_2$ reduction.
+Additionally, a higher reactor power allows for an increase in hydrogen production, and the H2-LTE and the H2-HTE curves show a wider separation.
 
 
 \section{Conclusions}
@@ -323,11 +323,11 @@ Nonetheless, the common belief that renewable energy is the solution to the prob
 A stand-alone increase in wind and solar generation capacities cannot eliminate all the carbon emissions.
 Such a strategy requires the addition of energy storage mechanisms into the grid.
 
-This work studies several energy alternatives for decarbonizing the UIUC campus grid, including a variety energy storage mechanisms.
+This work studies several energy alternatives for decarbonizing the UIUC campus grid, including a variety of energy storage mechanisms.
 The UIUC campus grid is a good example of a diverse micro-grid, in which different energy sources need to work symbiotically to fulfill campus demand.
 This work focused on reducing the carbon emissions on campus, contemplating several approaches.
 
-One of the main takeaways from Scenario 1 is that decreasing electricity purchases has a strong impact on CO$_2$ emissions.
+One of the main takeaways from Scenario 1 is that decreasing the electricity purchases has a strong impact on CO$_2$ emissions.
 However, this work considers that Abbott has a maximum capacity of 85 MW and that all that capacity is available if needed. As a co-generation plant, Abbott’s steam production may limit the maximum available electric capacity, requiring the purchase of electricity.
 Additionally, the results showed that increasing the capacity of the renewable sources linearly decreases CO$_2$ emissions as long as no storage mechanism is needed.
 
